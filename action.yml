@@ -1,0 +1,44 @@
+name: "TestSprite E2E Tests"
+description: "Trigger TestSprite E2E tests from GitHub Actions"
+author: "TestSprite"
+
+branding:
+  icon: heart
+  color: red
+
+inputs:
+  testsprite-api-key:
+    description: "TestSprite API Key for authentication"
+    required: true
+  github-token:
+    description:
+      "GitHub token for authentication (defaults to automatic token if not
+      provided)"
+    required: false
+  base_url:
+    description: "The base URL to run tests against"
+    required: true
+
+  blocking:
+    description: "Block PR if tests do not fully pass"
+    required: false
+    default: "false"
+
+  priority:
+    description:
+      "Priorities to run (comma-separated, e.g. High,Medium,Low). Empty or omit
+      = run all."
+    required: false
+    default: ""
+
+outputs:
+  total_tests:
+    description: "Total number of tests that ran"
+  passed_tests:
+    description: "Number of tests that passed"
+  result_url:
+    description: "URL to view the detailed test results"
+
+runs:
+  using: node24
+  main: dist/index.js
