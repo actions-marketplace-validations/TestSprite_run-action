@@ -3,8 +3,8 @@ description: "Trigger TestSprite E2E tests from GitHub Actions"
 author: "TestSprite"
 
 branding:
-  icon: heart
-  color: red
+  icon: gitlab
+  color: black
 
 inputs:
   testsprite-api-key:
